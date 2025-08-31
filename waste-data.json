@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Banana Peel",
+    "category": "Biodegradable",
+    "disposal": "Dispose in compost bin."
+  },
+  {
+    "name": "Plastic Bottle",
+    "category": "Recyclable",
+    "disposal": "Place in recycling bin."
+  },
+  {
+    "name": "Battery",
+    "category": "Hazardous",
+    "disposal": "Bring to hazardous waste facility."
+  },
+  {
+    "name": "Syringe",
+    "category": "Hospital Waste",
+    "disposal": "Dispose in sharps container."
+  },
+  {
+    "name": "Gloves",
+    "category": "Hospital Waste",
+    "disposal": "Dispose in biohazard waste bin."
+  },
+  {
+    "name": "Cement Debris",
+    "category": "Construction Waste",
+    "disposal": "Collect separately for disposal or recycling."
+  },
+  {
+    "name": "Metal Scrap",
+    "category": "Industrial Waste",
+    "disposal": "Send to scrap metal recycling facility."
+  },
+  {
+    "name": "Paper",
+    "category": "Office Waste",
+    "disposal": "Recycle in paper recycling bin."
+  },
+  {
+    "name": "Ink Cartridge",
+    "category": "Office Waste",
+    "disposal": "Return to supplier or recycling center."
+  },
+  {
+    "name": "Fertilizer Bag",
+    "category": "Agricultural Waste",
+    "disposal": "Dispose in agricultural chemical waste collection."
+  }
+]

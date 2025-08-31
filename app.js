@@ -1,60 +1,76 @@
-
-let wasteData = [];
 let model;
+let currentImage = null;
 
-// Load dataset
-fetch("waste-data.json")
-  .then(res => res.json())
-  .then(data => wasteData = data);
-
-// Load TensorFlow model
+// Load AI model
 async function loadModel() {
   model = await mobilenet.load();
-  console.log("TensorFlow.js MobileNet model loaded");
+  console.log("✅ AI Model loaded");
 }
 loadModel();
 
-// Search handler
-function handleSearch() {
-  const query = document.getElementById("searchInput").value.trim().toLowerCase();
-  searchWaste(query);
-}
+// Waste dataset (expand as needed)
+const wasteData = {
+  "plastic bottle": { type: "Recyclable", guide: "Dispose in recycling bin." },
+  "banana": { type: "Biodegradable", guide: "Put in compost bin." },
+  "paper": { type: "Recyclable", guide: "Recycle with paper waste." },
+  "syringe": { type: "Hazardous", guide: "Dispose in sharps container." }
+};
 
 // Search function
-function searchWaste(query) {
+function searchWaste() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
   const resultDiv = document.getElementById("result");
-  if (!query) {
-    resultDiv.innerHTML = "Please enter a waste item.";
-    return;
-  }
-  const match = wasteData.find(item => item.name.toLowerCase().includes(query));
-  if (match) {
-    resultDiv.innerHTML = `<strong>${match.name}</strong><br>Category: ${match.category}<br>Disposal: ${match.disposal}`;
+  if (wasteData[input]) {
+    resultDiv.innerHTML = `✅ <b>${input}</b> → ${wasteData[input].type}<br>📌 ${wasteData[input].guide}`;
   } else {
-    resultDiv.innerHTML = "❌ Item not found in database.";
+    resultDiv.innerHTML = "❌ Waste not found in database.";
   }
 }
 
-// Handle image upload
-function handleImageUpload(event) {
+// Preview uploaded image
+function previewImage(event) {
   const file = event.target.files[0];
   if (file) {
-    identifyWasteImage(file);
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      currentImage = e.target.result;
+      document.getElementById("previewImg").src = currentImage;
+      document.getElementById("imagePreview").classList.remove("hidden");
+    };
+    reader.readAsDataURL(file);
   }
 }
 
-// Identify waste using TensorFlow.js
-async function identifyWasteImage(file) {
-  const img = document.createElement("img");
-  img.src = URL.createObjectURL(file);
-  img.width = 224;
-  img.height = 224;
-  img.onload = async () => {
-    const predictions = await model.classify(img);
-    console.log("Predictions:", predictions);
-    if (predictions.length > 0) {
-      const itemName = predictions[0].className.toLowerCase();
-      searchWaste(itemName);
-    }
-  };
+// Classify image with AI
+async function classifyImage() {
+  if (!model || !currentImage) return alert("Upload an image first!");
+
+  const imgElement = document.getElementById("previewImg");
+  const predictions = await model.classify(imgElement);
+  console.log(predictions);
+
+  const bestGuess = predictions[0].className.toLowerCase();
+  const resultDiv = document.getElementById("result");
+
+  if (wasteData[bestGuess]) {
+    resultDiv.innerHTML = `🤖 AI thinks this is: <b>${bestGuess}</b><br>
+      ✅ Type: ${wasteData[bestGuess].type}<br>
+      📌 Guide: ${wasteData[bestGuess].guide}`;
+  } else {
+    resultDiv.innerHTML = `🤖 AI detected: <b>${bestGuess}</b><br>
+      ❌ Not found in waste database.`;
+  }
+}
+
+// Edit (choose new image)
+function editImage() {
+  document.getElementById("imageUpload").click();
+}
+
+// Delete (remove image)
+function deleteImage() {
+  currentImage = null;
+  document.getElementById("imagePreview").classList.add("hidden");
+  document.getElementById("previewImg").src = "";
+  document.getElementById("result").innerHTML = "";
 }

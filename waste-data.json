@@ -1,39 +1,85 @@
-[
-  {
-    "name": "Banana Peel",
-    "category": "Biodegradable",
-    "disposal": "Dispose in compost bin."
+{
+  "plastic bottle": { 
+    "type": "Recyclable", 
+    "guide": "Rinse and place in the recycling bin for plastics." 
   },
-  {
-    "name": "Plastic Bottle",
-    "category": "Recyclable",
-    "disposal": "Place in recycling bin."
+  "banana peel": { 
+    "type": "Biodegradable", 
+    "guide": "Place in compost or biodegradable waste bin." 
   },
-  {
-    "name": "Battery",
-    "category": "Hazardous",
-    "disposal": "Bring to hazardous waste facility."
+  "used syringe": { 
+    "type": "Hazardous (Hospital)", 
+    "guide": "Dispose in a sharps container at medical facilities." 
   },
-  {
-    "name": "Syringe",
-    "category": "Hospital Waste",
-    "disposal": "Dispose in sharps container."
+  "face mask": { 
+    "type": "Hazardous (Hospital/Community)", 
+    "guide": "Place in a sealed bag and dispose in hazardous waste bins." 
   },
-  {
-    "name": "Gloves",
-    "category": "Hospital Waste",
-    "disposal": "Dispose in biohazard waste bin."
+  "office paper": { 
+    "type": "Recyclable", 
+    "guide": "Stack neatly and send to paper recycling facilities." 
   },
-  {
-    "name": "Cement Debris",
-    "category": "Construction Waste",
-    "disposal": "Collect separately for disposal or recycling."
+  "broken glass": { 
+    "type": "Recyclable", 
+    "guide": "Handle carefully, place in marked glass bin." 
   },
-  {
-    "name": "Metal Scrap",
-    "category": "Industrial Waste",
-    "disposal": "Send to scrap metal recycling facility."
+  "cooking oil": { 
+    "type": "Hazardous (Household/Industrial)", 
+    "guide": "Collect in sealed container and send to hazardous disposal centers." 
   },
+  "aluminum can": { 
+    "type": "Recyclable", 
+    "guide": "Rinse and drop in the metal recycling bin." 
+  },
+  "leftover food": { 
+    "type": "Biodegradable", 
+    "guide": "Place in compost bin or biodegradable disposal area." 
+  },
+  "battery": { 
+    "type": "Hazardous (Household/Office)", 
+    "guide": "Dispose at e-waste collection facilities." 
+  },
+  "light bulb": { 
+    "type": "Hazardous (Office/Household)", 
+    "guide": "Recycle at e-waste or hazardous collection points." 
+  },
+  "cement debris": { 
+    "type": "Industrial Waste", 
+    "guide": "Transport to construction waste recycling or landfill." 
+  },
+  "paint can": { 
+    "type": "Hazardous (Industrial/Household)", 
+    "guide": "Dispose at chemical waste collection centers." 
+  },
+  "printer cartridge": { 
+    "type": "Hazardous (Office)", 
+    "guide": "Return to manufacturer or e-waste facility for recycling." 
+  },
+  "medical gloves": { 
+    "type": "Hazardous (Hospital)", 
+    "guide": "Place in sealed biohazard bags for proper disposal." 
+  },
+  "plastic straw": { 
+    "type": "Non-Recyclable", 
+    "guide": "Dispose in general trash; consider reusable alternatives." 
+  },
+  "tires": { 
+    "type": "Industrial Waste", 
+    "guide": "Send to tire recycling facility or repurpose." 
+  },
+  "electronic circuit board": { 
+    "type": "E-Waste", 
+    "guide": "Dispose through certified e-waste recycling facilities." 
+  },
+  "garden leaves": { 
+    "type": "Biodegradable", 
+    "guide": "Compost or dispose in biodegradable bin." 
+  },
+  "expired medicine": { 
+    "type": "Hazardous (Household/Hospital)", 
+    "guide": "Return to pharmacy take-back program or hazardous waste center." 
+  }
+}
   {
     "name": "Paper",
     "category": "Office Waste",
